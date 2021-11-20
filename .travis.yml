@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t simoncar/docker-react -f Dockerfile.dev .  # f means force to use
+
+script:
+  - docker run simoncar/docker-react npm run test -- --coverage
+
